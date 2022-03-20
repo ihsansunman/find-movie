@@ -18,7 +18,7 @@ export default function List(props) {
       <Card body outline>
         <CardImg src={props.poster} />
         <CardBody>
-          <CardTitle tag="h5">
+          <CardTitle tag="h5" className="movie-title">
             {props.title}{" "}
             <Badge color="success" pill>
               {props.vote}
@@ -28,7 +28,7 @@ export default function List(props) {
             {props.date}
           </CardSubtitle>
           <div className="text-center">
-          <Button id={props.popupId} type="button" outline color="dark" className="width: 100%">
+          <Button id={props.popupId} type="button" outline color="dark" className="mt-2">
             Show Overview
           </Button>
           </div>
