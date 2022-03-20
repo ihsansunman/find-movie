@@ -9,6 +9,7 @@ function App() {
   const API_KEY = "bbabd65672e05337de3e2ba6253a6e91";
   const IMG_API = "https://image.tmdb.org/t/p/w1280";
   const [movieDetail, setMovieDetail] = useState([]);
+  const [searchQuery, setSearchQuery] = useState("");
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/now_playing?api_key=${API_KEY}`)
@@ -21,13 +22,14 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar searchQuery={searchQuery} setSearchQuery={setSearchQuery}/>
       <div className="movie-list">
       <h3>Now Playing:</h3>
       <Row xs="1" sm="2" md="4">
-      {movieDetail.map((item, index) => (
+      {movieDetail.filter(x=>x.title.toLowerCase().includes(searchQuery.toLowerCase())).map((item, index) => (
         <List
           key={index}
+          popupId={"popper"+index}
           title={item.title}
           overview={item.overview}
           vote={item.vote_average}
