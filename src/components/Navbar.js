@@ -6,6 +6,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
+import LogoImg from "../images/logo.png"
 
 const Search = styled('div')(({ theme }) => ({
   mode: 'dark',
@@ -61,7 +62,7 @@ export default function SearchAppBar() {
             component="div"
             sx={{ flexGrow: 1, display: { xs: 'none', sm: 'block' } }}
           >
-            Find Movie
+            <img src={LogoImg} alt="logo"/>
           </Typography>
           <Search>
             <SearchIconWrapper>
