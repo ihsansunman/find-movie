@@ -1,8 +1,8 @@
 import "./App.scss";
 import { useEffect, useState } from "react";
-import List from "./components/pages/List";
-import Footer from "./components/pages/Footer";
-import Navbar from "./components/pages/Navbar";
+import List from "./components/List";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
 import { Row } from "reactstrap";
 
 function App() {
@@ -23,7 +23,8 @@ function App() {
     <div className="App">
       <Navbar />
       <div className="movie-list">
-      <Row xs="4">
+      <h3>Now Playing:</h3>
+      <Row xs="1" sm="2" md="4">
       {movieDetail.map((item, index) => (
         <List
           key={index}
