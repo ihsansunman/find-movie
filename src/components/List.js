@@ -4,32 +4,42 @@ import {
   CardImg,
   CardBody,
   CardTitle,
-  CardText,
   Badge,
   CardSubtitle,
+  Button,
+  UncontrolledPopover,
+  PopoverBody,
+  PopoverHeader,
 } from "reactstrap";
 
 export default function List(props) {
   return (
     <div>
-        <Card body outline>
-          <CardImg src={props.poster}/>
-          <CardBody>
-            <CardTitle tag="h5">
+      <Card body outline>
+        <CardImg src={props.poster} />
+        <CardBody>
+          <CardTitle tag="h5" className="movie-title">
             {props.title}{" "}
-              <Badge color="success" pill>
+            <Badge color="success" pill>
               {props.vote}
-              </Badge>
-            </CardTitle>
-            <CardSubtitle className="mb-2 text-muted"
-        tag="h6">
+            </Badge>
+          </CardTitle>
+          <CardSubtitle className="mb-2 text-muted" tag="h6">
             {props.date}
-            </CardSubtitle>
-            <CardText >
+          </CardSubtitle>
+          <div className="text-center">
+          <Button id={props.popupId} type="button" outline color="dark" className="mt-2">
+            Show Overview
+          </Button>
+          </div>
+          <UncontrolledPopover placement="bottom" target={props.popupId} trigger="focus">
+            <PopoverHeader>{props.title}</PopoverHeader>
+            <PopoverBody>
             {props.overview}
-            </CardText>
-          </CardBody>
-        </Card>
+            </PopoverBody>
+          </UncontrolledPopover>
+        </CardBody>
+      </Card>
     </div>
   );
 }
